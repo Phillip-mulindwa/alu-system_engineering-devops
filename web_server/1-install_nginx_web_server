@@ -1,17 +1,20 @@
 #!/usr/bin/env bash
+# Script to install and configure Nginx web server
 
-# Update package list
+# Update package lists
 sudo apt-get update -y
 
-# Install nginx
+# Install Nginx
 sudo apt-get install nginx -y
 
-# Start nginx
+# Start Nginx service (without systemctl)
 sudo service nginx start
 
-# Modify the default page
-echo "Holberton School for the win!" | sudo tee /var/www/html/index.html
+# Ensure the /var/www/html directory exists
+sudo mkdir -p /var/www/html
 
-# Restart nginx
+# Write "Holberton School" to index.html
+echo -e "Holberton School\n" | sudo tee /var/www/html/index.html
+
+# Restart Nginx (without systemctl)
 sudo service nginx restart
-
