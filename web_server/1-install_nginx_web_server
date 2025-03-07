@@ -1,17 +1,17 @@
-#!/usr/bin/env bash
-# Install and configure Nginx web server
+#!/bin/bash
 
-# Update package lists
-apt-get update -y
+# Update package list
+sudo apt-get update -y
 
-# Install Nginx
-apt-get install -y nginx
+# Install nginx
+sudo apt-get install nginx -y
 
-# Create a basic HTML page with the required content
-echo "Holberton School" > /var/www/html/index.html
+# Start nginx
+sudo service nginx start
 
-# Make sure Nginx is running
-service nginx start
+# Modify the default page
+echo "Holberton School for the win!" | sudo tee /var/www/html/index.html
 
-# Ensure Nginx starts on boot
-update-rc.d nginx defaults
+# Restart nginx
+sudo service nginx restart
+
