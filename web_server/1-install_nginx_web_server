@@ -1,17 +1,19 @@
 #!/usr/bin/env bash
 # Installs Nginx and configures it to serve a custom message
 
-# Exit immediately if a command exits with a non-zero status
-set -e
+set -e  # Exit immediately if a command fails
 
 # Update package lists
 sudo apt-get update -y
 
-# Install Nginx
+# Install Nginx if not installed
 sudo apt-get install -y nginx
 
-# Start Nginx service (without systemctl)
+# Ensure Nginx is started
 sudo service nginx start
+
+# Allow traffic on port 80
+sudo ufw allow 'Nginx Full'
 
 # Ensure the directory exists
 sudo mkdir -p /var/www/html
