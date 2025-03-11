@@ -1,5 +1,5 @@
 Host School
-  HostName 52.87.192.210
+  HostName 3.83.125.238
   User ubuntu
   IdentityFile ~/.ssh/school
   PasswordAuthentication no
